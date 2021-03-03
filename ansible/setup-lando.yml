@@ -1,0 +1,12 @@
+---
+- hosts: localhost
+  connection: local
+
+  vars:
+    # Add encrypted variables here.
+
+  tasks:
+    - name: Ensure a .env file is present.
+      template:
+        src: "{{ playbook_dir }}/templates/.env.j2"
+        dest: "{{ playbook_dir }}/../.env"

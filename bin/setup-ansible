@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+set -eo pipefail
+
+project_root() {
+  echo "$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+}
+
+ansible_root() {
+  echo "$(project_root)/ansible"
+}
+
+main() {
+  if [[ -f "$(ansible_root)/.vault-id" ]]; then
+    echo "Ansible Vault password is already set!"
+    exit 0
+  fi
+
+  echo "Enter the ansible vault password, followed by [ENTER]:"
+  read ansible_vault_password
+
+  echo "$ansible_vault_password" > "$(ansible_root)/.vault-id"
+}
+
+main "$@"

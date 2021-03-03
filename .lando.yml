@@ -1,0 +1,43 @@
+name: drupal-starter-project
+recipe: drupal9
+
+config:
+  php: 7.4
+  webroot: web
+
+services:
+  appserver:
+    run:
+      - composer install
+
+  node:
+    type: node:14
+    run:
+      - yarn install
+      - gulp build
+
+  # Uncomment to use ansible to store encrypted secrets.
+  # ansible:
+  #   type: python
+  #   via: cli
+  #   build_as_root:
+  #     - pip install ansible
+  #   run:
+  #     - bin/setup-ansible
+  #     - ansible-playbook ansible/setup-lando.yml --vault-id=ansible/.vault-id
+
+tooling:
+  ansible-playbook:
+    service: ansible
+  ansible-vault:
+    service: ansible
+  gulp:
+    service: node
+  yarn:
+    service: node
+  phpcs:
+    service: appserver
+    cmd: vendor/bin/phpcs
+  phpunit:
+    service: appserver
+    cmd: vendor/bin/phpunit

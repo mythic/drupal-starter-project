@@ -1,0 +1,37 @@
+# Drupal
+/web/*.*
+/web/core
+/web/libraries
+/web/modules/contrib
+/web/themes/contrib
+/web/profiles/contrib
+
+/web/sites/simpletest
+/web/sites/**/files
+/web/sites/**/local.local.php
+
+# Drush
+/drush/contrib
+
+# Compiled assets
+/web/**/*.css
+/web/**/*.js
+!/web/**/*.es6.js
+/web/**/*.map
+
+# Project dependencies
+/node_modules
+/vendor
+/yarn-error.log
+
+# Project test results
+/tests/**/results
+
+/drupal*.gz
+/.lando.local.yml
+/.env
+/.env.local
+/ansible/.vault-id
+/.editorconfig
+/.gitattributes
+/.phpunit.result.cache

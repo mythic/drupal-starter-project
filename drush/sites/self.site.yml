@@ -1,0 +1,21 @@
+local:
+  uri: https://drupal-starter-project.lndo.site
+  root: /app/web
+
+# development:
+#   uri:
+#   root:
+#   host:
+#   user:
+
+# staging:
+#   uri:
+#   root:
+#   host:
+#   user:
+
+# production:
+#   uri:
+#   root:
+#   host:
+#   user:

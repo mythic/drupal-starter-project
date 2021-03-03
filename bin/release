@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+set -eo pipefail
+
+project_root() {
+  echo "$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+}
+
+drush() {
+  echo "$(project_root)/vendor/bin/drush"
+}
+
+main() {
+  pushd "$(project_root)" > /dev/null
+    "$(drush)" cache:rebuild
+    "$(drush)" config:import --yes
+    "$(drush)" config:import --yes
+    "$(drush)" updatedb --yes
+    "$(drush)" cache:rebuild
+  popd > /dev/null
+}
+
+main "$@"

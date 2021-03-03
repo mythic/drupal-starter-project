@@ -1,0 +1,3 @@
+options:
+  uri: https://drupal-starter-project.lndo.site
+  verbose: true

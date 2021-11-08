@@ -2,7 +2,7 @@ name: drupal-starter-project
 recipe: drupal9
 
 config:
-  php: 7.4
+  php: "8.0"
   webroot: web
 
 services:

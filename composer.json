@@ -122,6 +122,6 @@
                 "type:drupal-drush"
             ]
         },
-        "patches": []
+        "patches": {}
     }
 }

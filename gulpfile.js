@@ -1,8 +1,8 @@
 const babel = require("gulp-babel");
-const eslint = require("gulp-eslint");
+const eslint = require("gulp-eslint-new");
 const gulp = require("gulp");
 const rename = require("gulp-rename");
-const sass = require("gulp-sass");
+const sass = require("gulp-sass")(require('node-sass'));
 const stylelint = require("gulp-stylelint");
 const sassGlob = require("gulp-sass-glob");
 

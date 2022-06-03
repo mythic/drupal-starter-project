@@ -15,7 +15,7 @@ services:
     type: node:16
     run:
       - yarn install
-      - gulp build
+      - yarn build
 
   # Uncomment to use ansible to store encrypted secrets.
   # ansible:
@@ -32,8 +32,6 @@ tooling:
     service: ansible
   ansible-vault:
     service: ansible
-  gulp:
-    service: node
   yarn:
     service: node
   phpcs:

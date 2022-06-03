@@ -20,6 +20,7 @@ module.exports = {
           MiniCssExtractPlugin.loader,
           'css-loader',
           'sass-loader',
+          'glob-import-loader',
         ],
       },
     ],

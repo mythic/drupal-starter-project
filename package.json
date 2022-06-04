@@ -7,7 +7,9 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "build": "webpack build"
+    "build": "webpack build",
+    "build:scss": "BUILD_TARGET=scss webpack build",
+    "build:js": "BUILD_TARGET=js webpack build"
   },
   "dependencies": {
     "@babel/core": "^7.18.2",

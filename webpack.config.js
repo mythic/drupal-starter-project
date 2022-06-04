@@ -18,9 +18,14 @@ module.exports = {
         test: /\.scss$/,
         use: [
           MiniCssExtractPlugin.loader,
-          'css-loader',
-          'sass-loader',
-          'glob-import-loader',
+          {
+            loader: "css-loader",
+            options: {
+              url: false,
+            },
+          },
+          "sass-loader",
+          "glob-import-loader",
         ],
       },
     ],

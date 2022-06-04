@@ -8,8 +8,14 @@
   "private": true,
   "scripts": {
     "build": "webpack build",
+    "build:js": "BUILD_TARGET=js webpack build",
     "build:scss": "BUILD_TARGET=scss webpack build",
-    "build:js": "BUILD_TARGET=js webpack build"
+    "validate": "yarn run validate:js; yarn run validate:scss",
+    "validate:js": "eslint 'web/{modules,themes}/custom/**/*.es6.js'",
+    "validate:scss": "stylelint 'web/{modules,themes}/custom/**/*.scss'",
+    "fix": "yarn run fix:js; yarn run fix:scss",
+    "fix:js": "eslint --fix 'web/{modules,themes}/custom/**/*.es6.js'",
+    "fix:scss": "stylelint --fix 'web/{modules,themes}/custom/**/*.scss'"
   },
   "dependencies": {
     "@babel/core": "^7.18.2",

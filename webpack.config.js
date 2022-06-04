@@ -31,7 +31,6 @@ module.exports = {
     ],
   },
   plugins: [
-    new RemoveEmptyScriptsPlugin(),
     new MiniCssExtractPlugin({
       filename: (chunk) => {
         const parsedPath = path.parse(chunk.chunk.name);
@@ -39,5 +38,6 @@ module.exports = {
         return `../${parsedPath.dir}/${parsedPath.name}.css`;
       },
     }),
+    new RemoveEmptyScriptsPlugin(),
   ],
 };

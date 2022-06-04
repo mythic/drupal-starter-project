@@ -4,7 +4,7 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const RemoveEmptyScriptsPlugin = require("webpack-remove-empty-scripts");
 
 const entries = {};
-const scssFiles = glob.sync("./web/{modules,themes}/custom/**/*.scss");
+const scssFiles = glob.sync("./web/{modules,themes}/custom/**/!(_)*.scss");
 
 scssFiles.forEach((file) => {
   entries[file] = file;

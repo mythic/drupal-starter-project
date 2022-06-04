@@ -24,6 +24,7 @@
     "eslint-plugin-react": "^7.30.0",
     "eslint-plugin-react-hooks": "^4.5.0",
     "eslint-plugin-yml": "^1.0.0",
+    "file-loader": "^6.2.0",
     "glob": "^8.0.3",
     "glob-import-loader": "^1.2.0",
     "mini-css-extract-plugin": "^2.6.0",

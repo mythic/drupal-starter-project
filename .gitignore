@@ -14,6 +14,7 @@
 /drush/contrib
 
 # Compiled assets
+/dist
 /web/**/*.css
 /web/**/*.js
 !/web/**/*.es6.js

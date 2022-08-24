@@ -1,0 +1,12 @@
+---
+- name: Provision Lando Environment
+  hosts: localhost
+  tasks:
+    - include_vars:
+        file: environment.yml
+        name: env_vars
+
+    - name: Generate a .env file for local Drupal development
+      template:
+        src: templates/env.j2
+        dest: /app/.env

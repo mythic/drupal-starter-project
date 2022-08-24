@@ -8,12 +8,13 @@
 
 /web/sites/simpletest
 /web/sites/**/files
-/web/sites/**/local.local.php
+/web/sites/**/settings.local.php
 
 # Drush
 /drush/contrib
 
 # Compiled assets
+/dist
 /web/**/*.css
 /web/**/*.js
 !/web/**/*.es6.js

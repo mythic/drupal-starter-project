@@ -25,13 +25,15 @@ services:
   #     - pip install ansible
   #   run:
   #     - bin/setup-ansible
-  #     - ansible-playbook ansible/setup-lando.yml --vault-id=ansible/.vault-id
+  #     - cd ansible && ansible-playbook lando.yml
 
 tooling:
   ansible-playbook:
     service: ansible
+    dir: /app/ansible
   ansible-vault:
     service: ansible
+    dir: /app/ansible
   yarn:
     service: node
   phpcs:

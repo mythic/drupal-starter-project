@@ -1,0 +1,68 @@
+---
+name: Code validation & tests
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+
+jobs:
+  validate-and-test:
+    runs-on: [ ubuntu-20.04 ]
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: "8.1"
+          tools: composer
+          extensions: bcmath, gd
+
+      - name: Get composer cache directory
+        id: composer-cache
+        run: echo "::set-output name=dir::$(composer config cache-files-dir)"
+
+      - name: Cache composer dependencies
+        uses: actions/cache@v1
+        with:
+          path: ${{ steps['composer-cache'].outputs.dir }}
+          key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
+          restore-keys: ${{ runner.os }}-composer-
+
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 16
+
+      - name: Cache node modules
+        uses: actions/cache@v2
+        env:
+          cache-name: cache-node-modules
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-build-${{ env.cache-name }}-
+            ${{ runner.os }}-build-
+            ${{ runner.os }}-
+
+      - name: Validate composer
+        run: composer validate
+
+      - name: Install composer dependencies
+        run: composer install
+
+      - name: Validate PHP
+        run: vendor/bin/phpcs
+
+      - name: Test PHP
+        run: vendor/bin/phpunit
+
+      - name: Install node dependencies
+        run: yarn install --frozen-lockfile
+
+      - name: Validate scripts & styles
+        run: yarn validate
+
+      - name: Build scripts & styles
+        run: yarn build

@@ -14,8 +14,8 @@
     "watch:js": "BUILD_TARGET=js webpack build --watch",
     "watch:scss": "BUILD_TARGET=scss webpack build --watch",
     "validate": "bin/validate",
-    "validate:js": "eslint 'web/{modules,themes}/custom/**/*.es6.js'",
-    "validate:scss": "stylelint 'web/{modules,themes}/custom/**/*.scss'",
+    "validate:js": "eslint --no-error-on-unmatched-pattern 'web/{modules,themes}/custom/**/*.es6.js'",
+    "validate:scss": "stylelint --allow-empty-input 'web/{modules,themes}/custom/**/*.scss'",
     "fix": "yarn fix:js; yarn fix:scss",
     "fix:js": "eslint --fix 'web/{modules,themes}/custom/**/*.es6.js'",
     "fix:scss": "stylelint --fix 'web/{modules,themes}/custom/**/*.scss'"

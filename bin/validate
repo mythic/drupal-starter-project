@@ -2,7 +2,7 @@
 set -o pipefail
 
 main() {
-  local cmds=("js" "scss" "react")
+  local cmds=("js" "scss")
   local fail=0
   for cmd in ${cmds[@]}; do
     yarn "validate:$cmd"

@@ -33,6 +33,4 @@
 /.env
 /.env.local
 /ansible/.vault-id
-/.editorconfig
-/.gitattributes
 /.phpunit.result.cache

@@ -2,18 +2,32 @@
 
 This is the Drupal application for [PROJECT][].
 
-## Getting Started
+## Table of Contents
+
+* [Project Setup](#project-setup)
+  * [Getting Started](#getting-started)
+    * [Dependencies](#dependencies)
+  * [Dependencies](#dependencies-1)
+  * [JavaScript and SCSS](#javascript-and-scss)
+    * [Build/Compile Assets](#buildcompile-assets)
+    * [Watch Assets](#watch-assets)
+    * [Validating Assets](#validating-assets)
+      * [Fixing validation errors](#fixing-validation-errors)
+
+## Project Setup
+
+### Getting Started
 
 This project has a single dependency, and that is [Lando][]. The entire
 project's services are contained in the Docker containers managed by [Lando][].
 [Lando][] will install a compatible version of Docker and Docker Compose when
 [Lando][] is installed.
 
-### Dependencies
+#### Dependencies
 
 * [Lando][] - Download the latest version
 
-## Dependencies
+### Dependencies
 
 There are two package managers in this project, [Composer][] and [Yarn][].
 Composer manages the PHP packages and Drupal libraries. [Yarn][] manages the
@@ -36,7 +50,7 @@ $ lando yarn add underscore
 This command will execute `yarn` inside of the Node docker container managed by
 Lando.
 
-## JavaScript and SCSS
+### JavaScript and SCSS
 
 There is a [Webpack][] configuration file located in the project root that is
 configured to compile JavaScript files ending in `.es6.js` and SCSS files
@@ -51,7 +65,7 @@ This enhances the developer experience working in this project by using modern
 technology while also generating compiled assets compatible for all modern
 browsers.
 
-### Build/Compile Assets
+#### Build/Compile Assets
 
 Build all asset types:
 ```bash
@@ -68,7 +82,7 @@ Build CSS assets:
 $ lando yarn build:scss
 ```
 
-### Watch Assets
+#### Watch Assets
 
 The watch commands will automatically compile the asset files if a chance in
 the file contents are detected.
@@ -88,7 +102,7 @@ Watch CSS assets:
 $ lando yarn watch:scss
 ```
 
-### Validating Assets
+#### Validating Assets
 
 There are two linting protocols in place for JavaScript (eslint) and SCSS
 (stylelint). It is recommended to run the validate command in your Continuous
@@ -109,7 +123,7 @@ Watch CSS assets:
 $ lando yarn validate:scss
 ```
 
-#### Fixing validation errors
+##### Fixing validation errors
 
 You can easily fix validation errors flagged by the linter by executing the fix
 command:
